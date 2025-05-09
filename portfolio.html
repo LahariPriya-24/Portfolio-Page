@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-rALUdERr4zL3phWXTCJ2+0V8w1pAKU8KTeC9Adts4L/wP3pvVZb1pMUp1nZ8Haxo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-1tXJfjlw6f0ZykVqoLsBrKJ8Ja8kIuouErzY6X1RbFawngzIazqp0P0k0WShUtF+"
+        crossorigin="anonymous"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .background-section {
+            background: linear-gradient(to bottom right, #2c3e50, #34495e);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .navbar-brand h4 {
+            margin: 0;
+        }
+
+        .navbar .nav-link h5 {
+            margin: 0;
+        }
+
+        img.x {
+            max-width: 110%;
+            height:70%;
+            border-radius:10%;
+            
+        }
+
+        .content {
+            color: white;
+            text-align: center; /* Ensure the content stays centered for smaller screens */
+        }
+
+        .scrollspy-example {
+            padding-top: 100px; /* Offset for fixed navbar */
+        }
+
+        /* Ensure proper spacing between navbar items */
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
+
+        /* Responsive adjustments for smaller devices */
+        @media (max-width: 576px) {
+            .navbar-nav .nav-item {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+         
+        .navbar-brand h4 {
+            margin: 0;
+        }
+        .navbar .nav-link h5 {
+            margin: 0;
+        }
+       
+        .content {
+            color: white;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .background-section {
+            background: linear-gradient(to bottom right, #2c3e50, #34495e);
+            position: relative;
+            height: 100vh;
+            background-image: url('https://img.freepik.com/premium-photo/office-desktop-laptop-notebook-pen-black-background-top-view-free-space-text-copy-space_641503-296098.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .x {
+        border-radius: 0; /* Removes circular style */
+        width: auto; /* Ensures natural size or can set specific width */
+        height: auto; /* Ensures natural aspect ratio */
+        object-fit: contain; /* Ensures the image doesn't get distorted */
+    }
+
+        .tab-titles {
+            display: flex;
+            color:rgb(255, 0, 8);
+            font-size:xx-large;
+            margin: 20px 0 40px;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-links::after {
+            content: '';
+            color:rgb(220, 220, 205);
+            width: 0;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+            background: #fffc3e;
+        }
+        .card {
+            border-radius: 15px;
+            border: 2px solid #ff004f;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .btn {
+            font-size: 1rem;
+        }
+
+        #scrollspyHeading4 .container-fluid {
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #scrollspyHeading5 .container-fluid {
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .tab-links.active-link::after {
+            width: 50%;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            color: rgb(173, 179, 179);
+            margin: 5px 0px;
+            font-size: 16px;
+        }
+
+        .tab-contents ul li span {
+            color: #ff004f;
+            font-size: 16px;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+        .contact-left{
+            flex-basis:35%;
+        }
+        .contact-right{
+            flex-basis:60%;
+        }
+        .contact-left p{
+            margin-top: 30px;
+        }
+        .contact-left p i{
+            color:#ff004f;
+            margin-right:15px;
+            font-size:25px;
+        }
+        .social-icons a{
+            text-decoration:none;
+            font-size:30px;
+            margin-right:15px;
+            color:#ababab;
+            display:inline-block;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover{
+            color:#ff004f;
+            transform: translateY(-5px);
+        }
+        .btn.btn2{
+            display:inline-block;
+            background: linear-gradient(90deg, #f46f1c, #ff004f);
+        }
+        .btn.btn3{
+            display:inline-block;
+            background:rgb(249, 0, 0);
+        }
+        .contact-right form{
+            width:100%;
+        }
+        form input,form textarea{
+            width:100%;
+            border:0;
+            outline:none;
+            background:#262626;
+            padding:15px;
+            margin:15px 0;
+            color:#dcd4d4;
+            font-size: 18px;
+            border-radius:6px;
+        }
+        form .btn2{
+            padding:14px 60px;
+            font-size: 18px;
+            margin-top:20px;
+            cursor: pointer;
+
+        }
+        .animated-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .animated-card:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .gradient-text {
+        background: linear-gradient(90deg, #ff935c, #ff5e62);  /* Gradient colors */
+        -webkit-background-clip: text; /* Clipsthe background to the text */
+        -webkit-text-fill-color: transparent; /* Makes the rest transparent */
+ /* Adju /* Optional: for emphasis */
+    }
+    .gradient-textt {
+        background: linear-gradient(90deg, #f26722, #ff5e62);  /* Gradient colors */
+        -webkit-background-clip: text; /* Clipsthe background to the text */
+        -webkit-text-fill-color: transparent; /* Makes the rest transparent */
+ /* Adju /* Optional: for emphasis */
+    }
+
+    .gradient-texttt {
+        background: linear-gradient(90deg, #f26722, #ffe045);  /* Gradient colors */
+        -webkit-background-clip: text; /* Clipsthe background to the text */
+        -webkit-text-fill-color: transparent; /* Makes the rest transparent */
+ /* Adju /* Optional: for emphasis */
+    }
+    </style>
+    <script>
+        function opentab(tabname) {
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            // Remove active-link and active-tab classes from all elements
+            for (let tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (let tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+
+            // Add the active-link class to the clicked tab and show the corresponding content
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="background-section">
+        <div class="overlay"></div>
+        <div class="content container-fluid" style="height:100vh;">
+            <!-- Navbar -->
+            <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark px-3">
+                <a class="navbar-brand" href="#" style="text-decoration: none; padding-left: 40px;">
+                    <h4 style="
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 2rem;
+                        font-weight: 700;
+                        background: linear-gradient(90deg, #f46f1c, #ff004f);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        letter-spacing: 2px;
+                        margin: 0;">
+                        My Portfolio
+                    </h4>
+                </a>
+                
+                
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading1">
+                                <h5 style="color:#dad7d5">Home</h5>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading2">
+                                <h5 style="color:#dad7d5">About Me</h5>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading3">
+                                <h5 style="color:#dad7d5">Portfolio</h5>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading4">
+                                <h5 style="color:#dad7d5">Projects</h5>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading5">
+                                <h5 style="color:#dad7d5">Contact</h5>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Main Content -->
+           
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" class="scrollspy-example bg-body-tertiary p-3 rounded-2">
+                <div id="scrollspyHeading1">
+                    <div class="row d-flex justify-content-center align-items-center" style="padding: 3%; height: 80vh;">
+                        <!-- Left Content -->
+                        <div class="col-lg-7 col-md-6 col-sm-12 text-center text-md-start">
+                            <h3 style="color: #d5cfcf; font-size: 1.5rem; margin-top: 8vh;">Hi, I'm</h3>
+                            <h1 style="color: #ffffff; font-size: 3rem; font-weight: bold;">Lahari Priya Gollapalli</h1>
+                            <p style="color: #9fa4a5; font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-top: 1.5rem; line-height: 1.6;">
+                                A <b style="color: #f3d1d7;">UI/UX designer</b>, passionate about creating user-friendly, visually compelling designs that solve real-world problems.
+                            </p>
+                            <!-- Button -->
+                            <div class="d-flex justify-content-center justify-content-md-start" style="margin-top: 2vh;">
+                                <button type="button" class="btn btn-warning btn-lg px-4 py-2" onClick="scrollToAbout()" style="font-size: 1.2rem; border-radius: 30px;">
+                                    Learn What I Do
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Right Content: Lottie Animation -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                            <div style="width: 100%; max-width: 400px; margin: auto;">
+                                <!-- Lottie Animation -->
+                                <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+                                <dotlottie-player src="https://lottie.host/2cac7a02-2919-4352-965f-54825b8727b7/ymXaMwhPpJ.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <hr style="margin-top: 10vh; border: 1px solid #333;">
+            </div>
+            
+            <!-- Include Lottie Script -->
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            
+                <!-- Divider -->
+                <hr style="margin-top: 10vh; border: 1px solid #333;">
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <div class="container-fluid d-flex justify-content align-items-center" style=" background-color: rgb(16, 16, 16); padding:4%;" id="scrollspyHeading2">
+        <hr>
+        <div class="container-fluid" style="padding:6%;background-color: black;margin-top:2rem;border-radius: 2.5%;box-shadow:#999395;">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-5">
+                <img src="img.jpeg" class="x about-me-image" alt="Profile Image">
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top: 4rem;">
+                <h2 class="section-title" style="font-family:'Lucida Sans', Geneva, Verdana, sans-serif; color:
+                rgb(255, 255, 255); text-shadow: 2px 2px 10px rgba(137, 132, 132, 0.8);">About Me</h2>
+                <br>
+                <p class="about-me-text" style="color:rgb(168, 165, 165);">Hi, I'm <b style="color:#c7a53f" class="gradient-texttt">Lahari Priya</b>. I’m a UI/UX designer who is deeply interested in creating intuitive, user-centered designs. My passion for creativity and detail allows me to craft digital experiences that are not only functional but aesthetically pleasing. With experience in various web design projects, I am constantly learning and improving my skills to stay up-to-date in this ever-evolving industry.</p>
+                <hr style="color: rgb(116, 113, 113);">
+               
+            </div>
+        </div>
+    </div>
+    <hr style="margin-top:10vh;">
+    </div>
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: vh; background-color: rgb(16, 16, 16); padding: 4%;" id="scrollspyHeading3">
+        <hr>
+        
+        <div class="container-fluid" style="padding: 4%; background-color: black; border-radius: 2.5%; box-shadow: #999395;">
+            <div class="row">
+                <h1 style="color: rgb(254, 250, 233); text-align: center;margin-top: 2rem;text-shadow: 2px 2px 10px rgba(137, 132, 132, 0.8)">Portfolio Details</h1>
+                <div class="col-lg-12">
+                    <!-- Tab Titles -->
+                    <div class="tab-titles text-center mb-4">
+                        <p class="tab-links active-link gradient-textt" onclick="opentab('skills')" style="cursor: pointer; display: inline-block; margin: 0 15px; font-size: 1.2rem;">Skills</p>
+                        <p class="tab-links gradient-textt" onclick="opentab('experience')" style="cursor: pointer; display: inline-block; margin: 0 15px; font-size: 1.2rem; ">Experience</p>
+                        <p class="tab-links gradient-textt" onclick="opentab('education')" style="cursor: pointer; display: inline-block; margin: 0 15px; font-size: 1.2rem; ">Education</p>
+                    </div>
+    
+                    <!-- Tab Contents Container -->
+                    <div class="tab-container" style="position: relative;">
+                        <!-- Skills Tab -->
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Programming Languages:</strong> C, Python, Java</li>
+                                <li><strong>Development:</strong> HTML, CSS, JavaScript, Angular, React, MERN stack</li>
+                                <li><strong>Other Tools:</strong> Git, Canva, Figma</li>
+                            </ul>
+                        </div>
+    
+                        <!-- Experience Tab -->
+                        <div class="tab-contents" id="experience">
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Company:</strong> APNT Business Solutions - Web Developer</li>
+                                <li><strong>Role:</strong> Developed food app using Angular</li>
+                                <li><strong>Duration:</strong> 6 months</li>
+                            </ul>
+                            <br>
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Company:</strong> Skill Vertex - AI ML Intern</li>
+                                <li><strong>Role:</strong> Built a churn prediction model</li>
+                                <li><strong>Duration:</strong> 3 months</li>
+                            </ul>
+                            <br>
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Company:</strong> Younity - Business Competence Intern</li>
+                                <li><strong>Role:</strong> Identified key competencies and supported strategic initiatives</li>
+                                <li><strong>Duration:</strong> 2 months</li>
+                            </ul>
+                        </div>
+    
+                        <!-- Education Tab -->
+                        <div class="tab-contents" id="education">
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Degree:</strong> Bachelors in Computer Science Engineering</li>
+                                <li><strong>University:</strong> Gitam University</li>
+                                <li><strong>CGPA:</strong> 9.84</li>
+                            </ul>
+                            <br>
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Degree:</strong> Intermediate</li>
+                                <li><strong>University:</strong> Ascent Junior College</li>
+                                <li><strong>Percentage:</strong> 97.5%</li>
+                            </ul>
+                            <br>
+                            <ul style="list-style-type: none; padding: 0; font-size: 1rem; color: white;">
+                                <li><strong>Degree:</strong> 10th Standard</li>
+                                <li><strong>School:</strong> Little Angels School</li>
+                                <li><strong>Percentage:</strong> 91.8%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr style="margin-top:20vh;margin-bottom: 10vh;color: white;">
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+<div class="container-fluid" style="background-color: rgb(16, 16, 16); padding: 4%;" id="scrollspyHeading4">
+    <hr>
+    <div class="container-fluid" style="padding:2%; background-color:black; border-radius: 2.5%; box-shadow: #999395;">
+       
+            <!-- Project 1 -->
+             <div class="row">
+                <h1 style="color: white; text-align: center; text-shadow: 2px 2px 10px rgba(137, 132, 132, 0.8);margin-bottom: 1rem;;">Projects</h1>
+            <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+                <div class="card animated-card" style="width: 18rem; border-color: #ff004f; border-radius: 15px;">
+                    <img src="https://cdn.dribbble.com/userupload/18397048/file/original-24ec73646757a5041b670593d8669580.png?format=webp&resize=450x338&vertical=center" class="card-img-top" alt="Food Mine App">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Food Mine App</h5>
+                        <p class="card-text">A modern food delivery app with intuitive UI/UX design.</p>
+                        <a href="https://github.com/LahariPriya-24/Food-app" class="btn btn-warning">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+            <br style="height:2vh;">
+            <!-- Project 2 -->
+            <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+                <div class="card animated-card" style="width: 18rem; border-color: #ff004f; border-radius: 15px;">
+                    <img src="https://cdn.dribbble.com/userupload/43250487/file/original-2491b278a8429eebf2954dc5eec94f26.png?resize=1504x940&vertical=center" class="card-img-top" alt="Project Screenshot">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Event Linker</h5>
+                        <p class="card-text">A portal to create, host and manage events.</p>
+                        <a href="https://github.com/LahariPriya-24/Event-Linker" class="btn btn-warning">GitHub Repo</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr style="margin-top:20vh;margin-bottom: 10vh;color: white;">
+</div>
+  
+
+<div class="container-fluid d-flex align-items-center" style="background-color: rgb(16, 16, 16); padding: 4%;" id="scrollspyHeading5">
+    <hr>
+    <div class="container-fluid" style="padding: 2%; background-color: black; border-radius: 2.5%; box-shadow: #999395;margin-top:2rem;">
+        <div class="row align-items-center">
+            <div id="contact" class="col-12">
+                <div class="row">
+
+                    <!-- Left Section -->
+                    <div class="col-sm-12 col-md-5 mb-4" style="padding-left: 5%;">
+                        <h1 class="sub-title justify-content-center" style="color:white;font-size:3rem;margin-bottom: 2rem;">Contact Me</h1>
+                        <p style="color:rgb(190, 184, 184);"><i class="fas fa-paper-plane"></i> laharipriya2004@gmail.com</p>
+                        <p style="color:rgb(190, 184, 184);"><i class="fas fa-phone-square-alt"></i> 7675870760</p>
+                        <a href="C:\Users\Lallu-Pallu\Downloads\1666562c-de36-4f9e-9f2b-118b61e0a324.docx (5)_removed.pdf" class="btn btn-warning" onclick="handleDownload()" style="margin-top:1rem;">Download Resume</a>
+                        <div class="social-icons mt-3">
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/lahari-priya-gollapalli-b852a6345/"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Right Section -->
+                    <div class="col-sm-12 col-md-7">
+                        <form name="submit-to-google-sheet" onsubmit="handleSubmit(event)">
+                            <div class="mb-3">
+                                <input type="text" name="Name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea name="Message" rows="6" class="form-control" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- Message Section -->
+                <div id="message" class="mt-3" style="display: none; color: rgb(67, 233, 67); font-weight: bold;"></div>
+            </div>
+        </div>
+        <hr style="margin-top:20vh;margin-bottom: 10vh;color: white;">
+    </div>
+</div>
+
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwCQjJM_T4KrcR2V0XGsys8Boyqdc4PMPQ_UP075AZ7MDzSm35WjMGoDLy4u-kYoejJUg/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+    function handleDownload() {
+        setTimeout(() => {
+            document.getElementById('message').innerText = 'File has been downloaded.';
+            document.getElementById('message').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('message').style.display = 'none';
+            }, 3000);
+        }, 500);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        document.getElementById('message').innerText = 'Message submitted.';
+        document.getElementById('message').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('message').style.display = 'none';
+        }, 3000);
+    }
+
+    function scrollToAbout() {
+        const aboutSection = document.getElementById('scrollspyHeading2');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            alert('About section not found!');
+        }
+    }
+  </script>
+
+</body>
+
+</html>
